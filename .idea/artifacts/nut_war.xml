@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="nut:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="com.shinowit-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="nut:war exploded" />
+    </root>
+  </artifact>
+</component>

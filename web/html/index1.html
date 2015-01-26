@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>支持键盘左右键翻页的分页效果</title>
+
+<link rel="stylesheet" href="/css/style1.css" type="text/css">
+
+
+</head>
+<body>
+
+<!-- 代码 开始 -->
+<div class="pagnation" id="pagnation">
+	<a href=# class="page-prev">上一页</a>
+	<a href=# class="current">1</a>
+	<a href=#>2</a>
+	<a href=#>3</a>
+	<a href=#>4</a>
+	<a href=#>5</a>...
+	<a href=#>13</a>
+	<a href=# class="page-next">下一页</a>
+</div>
+
+<div class="pagnation-tips">提示：支持键盘“← →”键翻页</div>
+
+<script type="text/javascript" src="/js/jquery-1.9.1.js"></script>
+<script type="text/javascript">
+var pagnation=$("#pagnation");
+$(document).on("keydown",function(event){
+	switch(event.keyCode){
+		 case 37 : window.location.href = pagnation.find(".page-prev").attr("href");break;
+		 case 39 : window.location.href = pagnation.find(".page-next").attr("href");break
+	}
+});
+</script>
+
+</body>
+</html>

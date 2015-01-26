@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry location="e://jdbc-drivers//sqljdbc4.jar" />
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+
+
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />
+        <plugin type="org.mybatis.generator.plugins.RenameExampleClassPlugin">
+            <property name="searchString" value="Example$" />
+            <property name="replaceString" value="Criteria" />
+        </plugin>
+
+        <jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+                        connectionURL="jdbc:sqlserver://localhost:1433;DatabaseName=OSS"
+                        userId="sa" password="shinow">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="com.shinowit.model"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+
+        <!--需要与spring整合时必须保证xml文件与mapper接口在同一个package下面-->
+        <sqlMapGenerator targetPackage="com.shinowit.dao.mapper"
+                         targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.shinowit.dao.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <table tableName="TMe_UnitInfo">
+        </table>
+
+        <table tableName="TMe_ProStatusInfo">
+        </table>
+
+        <table tableName="TMe_OutStockInfo">
+        </table>
+
+        <table tableName="TMe_OutStockDetailsInfo">
+        </table>
+
+        <table tableName="TMe_OrderInfo">
+        </table>
+
+        <table tableName="TMe_OrderDetailsInfo">
+        </table>
+
+        <table tableName="TMe_MerchandiseInfo">
+        </table>
+
+        <table tableName="TMe_MerchandiseCInfo">
+        </table>
+
+        <table tableName="TBa_SupplyRecordInfo">
+        </table>
+
+        <table tableName="TBa_MemberInfo">
+        </table>
+
+        <table tableName="TBa_MembeAddrInfo">
+        </table>
+
+        <table tableName="TBa_DeliveryInfo">
+        </table>
+
+        <table tableName="TAu_RoleInfo">
+        </table>
+
+        <table tableName="TAu_OperInfo">
+        </table>
+
+        <table tableName="province">
+        </table>
+
+        <table tableName="district">
+        </table>
+
+        <table tableName="city">
+        </table>
+
+
+
+
+        <!--
+        <table schema="" tableName="ALLTYPES" domainObjectName="Customer" >
+        <property name="useActualColumnNames" value="true"/> <generatedKey
+        column="ID" sqlStatement="DB2" identity="true" /> <columnOverride
+        column="DATE_FIELD" property="startDate" /> <ignoreColumn
+        column="FRED" /> <columnOverride column="LONG_VARCHAR_FIELD"
+        jdbcType="VARCHAR" /> </table>
+        -->
+    </context>
+</generatorConfiguration>
+
+
